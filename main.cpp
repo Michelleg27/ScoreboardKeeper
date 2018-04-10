@@ -1,3 +1,4 @@
+//Author: Michelle Gomez
 #include <iostream>
 #include <vector>
 
@@ -12,6 +13,7 @@ int main()
 {
   int periods;
   int teams;
+ vector<vector<int> > scoreBoard;
 
   cout<<"How many competitors? ";
   cin>>teams;
@@ -27,7 +29,32 @@ int main()
   }
   else
   {
-   //make scoreboard and fill it with zeros
+    scoreBoard.resize(teams); 
+    for( int row = 0; row < scoreBoard.size(); row++)
+    {
+       scoreBoard[row].resize(periods); 
+    } 
+    
+    for( int row = 0; row < scoreBoard.size(); row++)
+    {
+        for( int col =0; col < scoreBoard[row].size(); col++)
+        {
+            scoreBoard[row][col] = 0; 
+        }
+    }
+
+    cout<<"SCOREBOARD"<<endl; 
+
+    for ( int row = 0; row < scoreBoard.size(); row++)
+    {
+        cout<<"Player "<<row+1<<": ";
+        for (int col = 0; col < scoreBoard[row].size(); col++)
+        {
+            cout<<scoreBoard[row][col]<<"|"; 
+        }
+        cout<<endl; 
+    }
+    //make scoreboard and fill it with zeros
   
    //once created, display the scoreboard
   }
