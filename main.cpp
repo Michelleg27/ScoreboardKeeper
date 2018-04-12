@@ -85,13 +85,13 @@ vector<vector<int> > scoreBoard;
 }
 void printScoreboard(vector< vector<int> > grid)
 {
-    cout<<"SCOREDBOARD\n"; 
+    cout<<"SCOREBOARD\n"; 
     for (int row = 0; row < grid.size(); row++)
     {
         cout<<"Player "<<row+1<<": "; 
         for( int col = 0; col < grid[row].size(); col++)
         {
-            cout<<grid[row][col]<<"| "; 
+            cout<<grid[row][col]<<"|"; 
         }
         cout<<endl;
     }
