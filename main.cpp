@@ -1,6 +1,8 @@
 //Author: Michelle Gomez
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -9,11 +11,15 @@ const int MAX_TEAMS = 4;
 const int MIN_PERIODS = 1;
 const int MIN_TEAMS = 1;
 
+void printScoreboard(vector < vector <int> >);
+int randomBetween(int, int); 
+
 int main()
 {
+  srand((int) time(0)); 
   int periods;
   int teams;
- vector<vector<int> > scoreBoard;
+vector<vector<int> > scoreBoard;
 
   cout<<"How many competitors? ";
   cin>>teams;
@@ -42,8 +48,22 @@ int main()
             scoreBoard[row][col] = 0; 
         }
     }
-
-    cout<<"SCOREBOARD"<<endl; 
+   
+    printScoreboard(scoreBoard);
+    
+        for (int row = 0; row < scoreBoard.size(); row++)
+        {
+            for( int col = 0; col <scoreBoard[row].size(); col++)
+            {
+                scoreBoard[row][col] = randomBetween(5,5); 
+               
+            }
+        }
+    printScoreboard(scoreBoard); 
+ 
+    }
+  
+/*  cout<<"SCOREBOARD"<<endl; 
 
     for ( int row = 0; row < scoreBoard.size(); row++)
     {
@@ -58,5 +78,26 @@ int main()
   
    //once created, display the scoreboard
   }
+  */
   return 0;
+
+
+}
+void printScoreboard(vector< vector<int> > grid)
+{
+    cout<<"SCOREDBOARD\n"; 
+    for (int row = 0; row < grid.size(); row++)
+    {
+        cout<<"Player "<<row+1<<": "; 
+        for( int col = 0; col < grid[row].size(); col++)
+        {
+            cout<<grid[row][col]<<"| "; 
+        }
+        cout<<endl;
+    }
+}
+int randomBetween( int first, int second)
+{
+    return second + rand()%(first-second+1);
+    return first + rand()%(second-first+1); 
 }
